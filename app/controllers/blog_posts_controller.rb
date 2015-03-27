@@ -13,6 +13,13 @@ class BlogPostsController < ApplicationController
     render json: @blog_post
   end
 
+  def update
+    blog_post = BlogPost.find(params[:id])
+    blog_post.update_attributes(post_params)
+    blog_post.save
+    render json: blog_post
+  end
+
   private
     def post_params
       params.require(:blog_post).permit(:title,:body,:published_date)
