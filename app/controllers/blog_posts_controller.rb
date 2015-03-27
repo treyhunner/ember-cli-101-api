@@ -1,17 +1,16 @@
 class BlogPostsController < ApplicationController
   def index
-    @blog_posts = BlogPost.all
-    render :json => @blog_posts
+    render json: BlogPost.all
   end
 
   def show
     @blog_post = BlogPost.find(params[:id])
-    render :json => @blog_post
+    render json: @blog_post
   end
 
   def create
     @blog_post = BlogPost.create(post_params)
-    render :json => @blog_post
+    render json: @blog_post
   end
 
   private

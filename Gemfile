@@ -14,7 +14,7 @@ end
 gem 'pg', group: :production
 gem 'rails_12factor', group: :production
 
-gem 'active_model_serializers'
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers', branch: '0-8-stable'
 
 gem 'rack-cors', :require => 'rack/cors'
 
