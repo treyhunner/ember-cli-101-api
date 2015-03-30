@@ -116,6 +116,7 @@ GEM
     tilt (1.4.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    will_paginate (3.0.7)
 
 PLATFORMS
   ruby
@@ -129,3 +130,4 @@ DEPENDENCIES
   rails_12factor
   spring
   sqlite3
+  will_paginate (~> 3.0.6)
