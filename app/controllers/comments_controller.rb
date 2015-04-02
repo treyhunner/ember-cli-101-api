@@ -1,13 +1,17 @@
 class CommentsController < ApplicationController
   def index
-    if params[:blog_post_id]
+    comments = if params[:blog_post_id]
       blog_post = BlogPost.find(params[:blog_post_id])
-      comments = Comment.where(blog_post_id: blog_post.id).order(created_at: :desc)
+      Comment.where(blog_post_id: blog_post.id)
     else
-      comments = Comment.order(created_at: :desc)
+      Comment
+    end.order(created_at: :desc)
+
+    if params[:ids]
+      comments = comments.where(id: params[:ids])
     end
-    comments = comments.paginate(page: params[:page], per_page: 10)
-    render json: comments, meta: { pages: comments.total_pages }
+
+    render json: comments
   end
 
   def show
